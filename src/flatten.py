@@ -19,6 +19,7 @@ class Flatten(Layer):
 	def forward_propagation(self,_input):
 		self.__input=_input
 		self.__shape=self.__input.shape
+		#self.__shape[0]:number of samples
 		self.__output=np.zeros((self.__shape[0],reduce(lambda x,y:x*y,self.__shape[1:])))
 		for i in range(self.__shape[0]):
 			self.__output[i,:]=self.__input[i,:,:,:].flatten()
